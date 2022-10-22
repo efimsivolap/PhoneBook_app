@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1078319116100",
+    "project_id": "phonelist-ccc02",
+    "storage_bucket": "phonelist-ccc02.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1078319116100:android:2140a7438e48340002f111",
+        "android_client_info": {
+          "package_name": "com.example.phone_book_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1078319116100-54cm4u4cafj14gejacp1nir5d04hm899.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAHSXhdMHlCRF7Z07rd3fGam1q_iPiges"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1078319116100-54cm4u4cafj14gejacp1nir5d04hm899.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
