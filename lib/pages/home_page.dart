@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:phone_book_app/helper/helper_function.dart';
-import 'package:phone_book_app/pages/contacts/chat.dart';
-import 'package:phone_book_app/pages/contacts/contact_profile.dart';
+
 import 'package:phone_book_app/pages/contacts/dashboard.dart';
 import 'package:phone_book_app/pages/contacts/settings.dart';
 import 'package:phone_book_app/pages/profile_page.dart';
@@ -10,6 +9,7 @@ import 'package:phone_book_app/service/auth_service.dart';
 import 'package:phone_book_app/widgets/widgets.dart';
 
 import 'auth/login_page.dart';
+import 'contacts/add_contact.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -20,7 +20,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentTab = 0;
-  final List<Widget> screens = [Dashboard(), Chat(), Profile(), Settings()];
+  final List<Widget> screens = [Dashboard(), Settings()];
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = Dashboard();
 
@@ -176,8 +176,13 @@ class _HomePageState extends State<HomePage> {
         child: currentScreen,
         bucket: bucket,
       ),
-      floatingActionButton:
-          FloatingActionButton(child: Icon(Icons.add), onPressed: () {}),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {
+          nextScreen(context, AddContact());
+        },
+        backgroundColor: Theme.of(context).primaryColor,
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
@@ -185,7 +190,7 @@ class _HomePageState extends State<HomePage> {
         child: Container(
           height: 60,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -202,71 +207,26 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.dashboard,
-                          color: currentTab == 0 ? Colors.blue : Colors.grey,
+                          Icons.supervised_user_circle_sharp,
+                          color: currentTab == 0
+                              ? const Color(0xFFee7b64)
+                              : Colors.grey,
                         ),
                         Text(
-                          'Dashboard',
+                          'contacts',
                           style: TextStyle(
-                              color:
-                                  currentTab == 0 ? Colors.blue : Colors.grey),
+                              color: currentTab == 0
+                                  ? const Color(0xFFee7b64)
+                                  : Colors.grey),
                         )
                       ],
                     ),
                   ),
-                  MaterialButton(
-                    minWidth: 40,
-                    onPressed: () {
-                      setState(() {
-                        currentScreen = Chat();
-                        currentTab = 1;
-                      });
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.chat,
-                          color: currentTab == 1 ? Colors.blue : Colors.grey,
-                        ),
-                        Text(
-                          'Chat',
-                          style: TextStyle(
-                              color:
-                                  currentTab == 1 ? Colors.blue : Colors.grey),
-                        )
-                      ],
-                    ),
-                  )
                 ],
               ),
               Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  MaterialButton(
-                    minWidth: 40,
-                    onPressed: () {
-                      setState(() {
-                        currentScreen = Profile();
-                        currentTab = 2;
-                      });
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.person,
-                          color: currentTab == 2 ? Colors.blue : Colors.grey,
-                        ),
-                        Text(
-                          'Profile',
-                          style: TextStyle(
-                              color:
-                                  currentTab == 2 ? Colors.blue : Colors.grey),
-                        )
-                      ],
-                    ),
-                  ),
                   MaterialButton(
                     minWidth: 40,
                     onPressed: () {
@@ -280,13 +240,16 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Icon(
                           Icons.settings,
-                          color: currentTab == 3 ? Colors.blue : Colors.grey,
+                          color: currentTab == 3
+                              ? const Color(0xFFee7b64)
+                              : Colors.grey,
                         ),
                         Text(
-                          'Settings',
+                          'settings',
                           style: TextStyle(
-                              color:
-                                  currentTab == 3 ? Colors.blue : Colors.grey),
+                              color: currentTab == 3
+                                  ? const Color(0xFFee7b64)
+                                  : Colors.grey),
                         )
                       ],
                     ),
