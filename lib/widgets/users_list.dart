@@ -16,7 +16,9 @@ class _ListUsersState extends State<ListUsers> {
   Widget build(BuildContext context) {
     final allUsers = widget.users;
     final _ctrUpdateName = TextEditingController();
-    final _ctrUpdateAge = TextEditingController();
+    final _ctrUpdateSurname = TextEditingController();
+    final _ctrUpdateLastname = TextEditingController();
+    final _ctrUpdateTelephone = TextEditingController();
 
     return ListView.builder(
         itemCount: allUsers.length,
@@ -34,7 +36,7 @@ class _ListUsersState extends State<ListUsers> {
                 allUsers[index].name,
                 style: TextStyle(fontSize: 15),
               ),
-              subtitle: Text(allUsers[index].age.toString()),
+              subtitle: Text(allUsers[index].telephone.toString()),
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -65,11 +67,24 @@ class _ListUsersState extends State<ListUsers> {
                                     style: TextStyle(
                                         fontSize: 22, color: Colors.blue),
                                     decoration: InputDecoration(
-                                        labelText: "Age",
+                                        labelText: "Surname",
                                         border: OutlineInputBorder(
                                             borderRadius: BorderRadius.all(
                                                 Radius.circular(40)))),
-                                    controller: _ctrUpdateAge,
+                                    controller: _ctrUpdateSurname,
+                                  ),
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  TextField(
+                                    style: TextStyle(
+                                        fontSize: 22, color: Colors.blue),
+                                    decoration: InputDecoration(
+                                        labelText: "Telephone",
+                                        border: OutlineInputBorder(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(40)))),
+                                    controller: _ctrUpdateTelephone,
                                   ),
                                   const SizedBox(
                                     height: 20,
@@ -79,7 +94,9 @@ class _ListUsersState extends State<ListUsers> {
                                       final user = User(
                                           id: allUsers[index].id,
                                           name: _ctrUpdateName.text,
-                                          age: int.parse(_ctrUpdateAge.text));
+                                          surname: _ctrUpdateSurname.text,
+                                          telephone: int.parse(
+                                              _ctrUpdateTelephone.text));
                                       updateUser(user);
                                     },
                                     child: Container(
