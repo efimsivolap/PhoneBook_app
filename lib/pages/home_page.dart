@@ -208,16 +208,13 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Icon(
                           Icons.supervised_user_circle_sharp,
-                          color: currentTab == 0
-                              ? const Color(0xFFee7b64)
-                              : Colors.grey,
+                          color: currentTab == 0 ? Colors.blue : Colors.grey,
                         ),
                         Text(
                           'contacts',
                           style: TextStyle(
-                              color: currentTab == 0
-                                  ? const Color(0xFFee7b64)
-                                  : Colors.grey),
+                              color:
+                                  currentTab == 0 ? Colors.blue : Colors.grey),
                         )
                       ],
                     ),
@@ -240,16 +237,13 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Icon(
                           Icons.settings,
-                          color: currentTab == 3
-                              ? const Color(0xFFee7b64)
-                              : Colors.grey,
+                          color: currentTab == 3 ? Colors.blue : Colors.grey,
                         ),
                         Text(
                           'settings',
                           style: TextStyle(
-                              color: currentTab == 3
-                                  ? const Color(0xFFee7b64)
-                                  : Colors.grey),
+                              color:
+                                  currentTab == 3 ? Colors.blue : Colors.grey),
                         )
                       ],
                     ),

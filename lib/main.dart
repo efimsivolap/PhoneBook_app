@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:phone_book_app/pages/auth/login_page.dart';
 import 'package:phone_book_app/pages/home_page.dart';
+import 'package:phone_book_app/provider/dark_theme_provider.dart';
 import 'package:phone_book_app/shared/constants.dart';
+import 'package:provider/provider.dart';
 
 import 'helper/helper_function.dart';
 
@@ -26,7 +28,9 @@ void main() async {
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  DarkThemeProvider themeChangeProvider = DarkThemeProvider();
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -34,12 +38,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   bool _isSignedIn = false;
-
-  @override
-  void initState() {
-    super.initState();
-    getUserLoggedInStatus();
-  }
 
   getUserLoggedInStatus() async {
     await HelperFunctions.getUserLoggedInStatus().then((value) {
@@ -51,14 +49,37 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  DarkThemeProvider themeChangeProvider = DarkThemeProvider();
+
+  void getCurrentAppTheme() async {
+    themeChangeProvider.setDarkTheme =
+        await themeChangeProvider.darkThemePrefs.getTheme();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getUserLoggedInStatus();
+    getCurrentAppTheme();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-          primaryColor: Constants().primaryColor,
-          scaffoldBackgroundColor: Color.fromARGB(255, 194, 221, 248)),
-      debugShowCheckedModeBanner: false,
-      home: _isSignedIn ? const HomePage() : const LoginPage(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) {
+          return themeChangeProvider;
+        })
+      ],
+      child:
+          Consumer<DarkThemeProvider>(builder: (context, themeProvider, child) {
+        return MaterialApp(
+          theme: Styles.themeData(themeProvider.getDarkTheme, context),
+          debugShowCheckedModeBanner: false,
+          home: _isSignedIn ? const HomePage() : const LoginPage(),
+        );
+      }),
     );
   }
 }

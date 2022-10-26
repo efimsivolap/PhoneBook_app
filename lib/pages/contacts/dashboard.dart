@@ -18,6 +18,7 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     List<User> allUsers = [];
     return Scaffold(
+      
         body: StreamBuilder<QuerySnapshot>(
       stream: FirebaseFirestore.instance
           .collection('users2')
