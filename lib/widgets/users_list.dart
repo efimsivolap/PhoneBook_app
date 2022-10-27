@@ -18,7 +18,12 @@ class _ListUsersState extends State<ListUsers> {
     final _ctrUpdateName = TextEditingController();
     final _ctrUpdateSurname = TextEditingController();
     final _ctrUpdateLastname = TextEditingController();
+    final _ctrUpdatePseudonym = TextEditingController();
     final _ctrUpdateTelephone = TextEditingController();
+    final _ctrUpdateEmail = TextEditingController();
+    final _ctrUpdateSocialNetwork = TextEditingController();
+    final _ctrUpdateImportantDate = TextEditingController();
+    final _ctrUpdateComments = TextEditingController();
 
     return ListView.builder(
         itemCount: allUsers.length,
@@ -43,9 +48,101 @@ class _ListUsersState extends State<ListUsers> {
                   TextButton(
                     onPressed: () {
                       showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                                title: Text(allUsers[index].name),
+                                content: SingleChildScrollView(
+                                    child: Container(
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        child: Text(
+                                            'Имя: ${allUsers[index].name}'),
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      Container(
+                                        child: Text(
+                                            'Фамилия: ${allUsers[index].surname}'),
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      Container(
+                                        child: Text(
+                                            'Отчество: ${allUsers[index].lastname}'),
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      Container(
+                                        child: Text(
+                                            'Псевдоним: ${allUsers[index].pseudonym}'),
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      Container(
+                                        child: Text(
+                                            'Телефон: ${allUsers[index].telephone}'),
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      Container(
+                                        child: Text(
+                                            'Почта: ${allUsers[index].email}'),
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      Container(
+                                        child: Text(
+                                            'Соц.сети: ${allUsers[index].socialNetwork}'),
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      Container(
+                                        child: Text(
+                                            'Важные даты: ${allUsers[index].importantDate}'),
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      Container(
+                                        child: Text(
+                                            'Комментарии: ${allUsers[index].comments}'),
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      const SizedBox(
+                                        height: 20,
+                                      ),
+                                      ElevatedButton(
+                                          onPressed: () {
+                                            Navigator.pop(context, "ok");
+                                          },
+                                          child: Text("ok"))
+                                    ],
+                                  ),
+                                )),
+                              ));
+                    },
+                    child: Icon(
+                      Icons.visibility,
+                      size: 20,
+                      color: Colors.blue,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      showDialog(
                         context: context,
                         builder: (context) => AlertDialog(
-                          title: Text('Update: ${allUsers[index].name}'),
+                          title: Text('Изменить: ${allUsers[index].name}'),
                           content: SingleChildScrollView(
                             child: Container(
                               child: Column(
@@ -54,7 +151,8 @@ class _ListUsersState extends State<ListUsers> {
                                     style: TextStyle(
                                         fontSize: 22, color: Colors.blue),
                                     decoration: InputDecoration(
-                                        labelText: "Name",
+                                        labelText: "имя",
+                                      
                                         border: OutlineInputBorder(
                                             borderRadius: BorderRadius.all(
                                                 Radius.circular(40)))),
@@ -67,7 +165,7 @@ class _ListUsersState extends State<ListUsers> {
                                     style: TextStyle(
                                         fontSize: 22, color: Colors.blue),
                                     decoration: InputDecoration(
-                                        labelText: "Surname",
+                                        labelText: "фамилия",
                                         border: OutlineInputBorder(
                                             borderRadius: BorderRadius.all(
                                                 Radius.circular(40)))),
@@ -80,11 +178,89 @@ class _ListUsersState extends State<ListUsers> {
                                     style: TextStyle(
                                         fontSize: 22, color: Colors.blue),
                                     decoration: InputDecoration(
-                                        labelText: "Telephone",
+                                        labelText: "отчество",
+                                        border: OutlineInputBorder(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(40)))),
+                                    controller: _ctrUpdateLastname,
+                                  ),
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  TextField(
+                                    style: TextStyle(
+                                        fontSize: 22, color: Colors.blue),
+                                    decoration: InputDecoration(
+                                        labelText: "псевдоним",
+                                        border: OutlineInputBorder(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(40)))),
+                                    controller: _ctrUpdatePseudonym,
+                                  ),
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  TextField(
+                                    style: TextStyle(
+                                        fontSize: 22, color: Colors.blue),
+                                    decoration: InputDecoration(
+                                        labelText: "телефон",
                                         border: OutlineInputBorder(
                                             borderRadius: BorderRadius.all(
                                                 Radius.circular(40)))),
                                     controller: _ctrUpdateTelephone,
+                                  ),
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  TextField(
+                                    style: TextStyle(
+                                        fontSize: 22, color: Colors.blue),
+                                    decoration: InputDecoration(
+                                        labelText: "электронная почта",
+                                        border: OutlineInputBorder(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(40)))),
+                                    controller: _ctrUpdateEmail,
+                                  ),
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  TextField(
+                                    style: TextStyle(
+                                        fontSize: 22, color: Colors.blue),
+                                    decoration: InputDecoration(
+                                        labelText: "соц.сети",
+                                        border: OutlineInputBorder(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(40)))),
+                                    controller: _ctrUpdateSocialNetwork,
+                                  ),
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  TextField(
+                                    style: TextStyle(
+                                        fontSize: 22, color: Colors.blue),
+                                    decoration: InputDecoration(
+                                        labelText: "значимые даты",
+                                        border: OutlineInputBorder(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(40)))),
+                                    controller: _ctrUpdateImportantDate,
+                                  ),
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  TextField(
+                                    style: TextStyle(
+                                        fontSize: 22, color: Colors.blue),
+                                    decoration: InputDecoration(
+                                        labelText: "комментарии",
+                                        border: OutlineInputBorder(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(40)))),
+                                    controller: _ctrUpdateComments,
                                   ),
                                   const SizedBox(
                                     height: 20,
@@ -95,13 +271,22 @@ class _ListUsersState extends State<ListUsers> {
                                           id: allUsers[index].id,
                                           name: _ctrUpdateName.text,
                                           surname: _ctrUpdateSurname.text,
+                                          lastname: _ctrUpdateLastname.text,
+                                          pseudonym: _ctrUpdatePseudonym.text,
                                           telephone: int.parse(
-                                              _ctrUpdateTelephone.text));
+                                              _ctrUpdateTelephone.text),
+                                          email: _ctrUpdateEmail.text,
+                                          socialNetwork:
+                                              _ctrUpdateSocialNetwork.text,
+                                          importantDate:
+                                              _ctrUpdateImportantDate.text,
+                                          comments: _ctrUpdateComments.text);
                                       updateUser(user);
+                                      Navigator.pop(context);
                                     },
                                     child: Container(
                                       width: double.infinity,
-                                      child: Text("Update"),
+                                      child: Text("изменить"),
                                     ),
                                   ),
                                 ],
@@ -111,9 +296,9 @@ class _ListUsersState extends State<ListUsers> {
                           actions: [
                             ElevatedButton(
                                 onPressed: () {
-                                  Navigator.pop(context, "Cancel");
+                                  Navigator.pop(context, "выйти");
                                 },
-                                child: Text("Cancel"))
+                                child: Text("выйти"))
                           ],
                         ),
                       );
@@ -130,20 +315,20 @@ class _ListUsersState extends State<ListUsers> {
                           context: context,
                           builder: (context) => AlertDialog(
                                 title: Text(
-                                    "Do you want to delete a contact ${allUsers[index].name}?"),
+                                    "Вы хотите удалить этот контакт ${allUsers[index].name}?"),
                                 actions: [
                                   ElevatedButton(
                                     onPressed: () {
                                       deleteUser(allUsers[index].id);
                                       Navigator.pop(context, 'yes');
                                     },
-                                    child: Text("yes"),
+                                    child: Text("да"),
                                   ),
                                   ElevatedButton(
                                     onPressed: () {
-                                      Navigator.pop(context, "cancel");
+                                      Navigator.pop(context, "выход");
                                     },
-                                    child: Text("no"),
+                                    child: Text("нет"),
                                   ),
                                 ],
                               ));

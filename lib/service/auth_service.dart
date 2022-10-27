@@ -6,7 +6,7 @@ import 'package:phone_book_app/service/database_service.dart';
 class AuthService {
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
 
-  //login
+  //авторизация
   Future loginUserWithEmailandPassword(String email, String password) async {
     try {
       User user = (await firebaseAuth.signInWithEmailAndPassword(
@@ -21,7 +21,7 @@ class AuthService {
     }
   }
 
-  //register
+  //регистрация
   Future registerUserWithEmailandPassword(
       String fullName, String email, String password) async {
     try {
@@ -30,7 +30,7 @@ class AuthService {
           .user!;
 
       if (user != null) {
-        //call our databaseservice to update the user data
+        //обращение в базу данных для обновления пользователя
         await DatabaseService(uid: user.uid).savingUserData(fullName, email);
 
         return true;
@@ -40,7 +40,7 @@ class AuthService {
     }
   }
 
-  //signout
+  //выход
 
   Future signOut() async {
     try {

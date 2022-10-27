@@ -40,20 +40,20 @@ class _RegisterPageState extends State<RegisterPage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       const Text(
-                        "PhoneBook",
+                        "Телефонный справочник",
                         style: TextStyle(
-                          fontSize: 40,
+                          fontSize: 30,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       const SizedBox(
                         height: 10,
                       ),
-                      const Text("Create your account now"),
+                      const Text("Создайте учетную запись сейчас"),
                       Image.asset("assets/register.png"),
                       TextFormField(
                         decoration: textInputDecoration.copyWith(
-                            labelText: "Full Name",
+                            labelText: "Полное имя",
                             prefixIcon: Icon(
                               Icons.person,
                               color: Theme.of(context).primaryColor,
@@ -67,7 +67,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           if (val!.isNotEmpty) {
                             return null;
                           } else {
-                            return "Name can't be empty";
+                            return "Имя не может быть пустым";
                           }
                         },
                       ),
@@ -76,7 +76,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                       TextFormField(
                         decoration: textInputDecoration.copyWith(
-                            labelText: "Email",
+                            labelText: "Электронная почта",
                             prefixIcon: Icon(
                               Icons.email,
                               color: Theme.of(context).primaryColor,
@@ -91,7 +91,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                       r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                                   .hasMatch(val!)
                               ? null
-                              : "Please enter a valid email";
+                              : "Пожалуйста, введите действительный адрес электронной почты";
                         },
                       ),
                       const SizedBox(
@@ -100,14 +100,14 @@ class _RegisterPageState extends State<RegisterPage> {
                       TextFormField(
                         obscureText: true,
                         decoration: textInputDecoration.copyWith(
-                            labelText: "Password",
+                            labelText: "Пароль",
                             prefixIcon: Icon(
                               Icons.lock,
                               color: Theme.of(context).primaryColor,
                             )),
                         validator: (val) {
                           if (val!.length < 6) {
-                            return "Password must be at least 6 characters";
+                            return "Пароль должен быть не менее 6 символов";
                           } else
                             return null;
                         },
@@ -131,7 +131,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                           ),
                           child: const Text(
-                            "Register",
+                            "Регистрация",
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 16,
@@ -147,14 +147,14 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                       Text.rich(
                         TextSpan(
-                          text: "Already have an account?",
+                          text: "У вас уже есть аккаунт?",
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 14,
                           ),
                           children: <TextSpan>[
                             TextSpan(
-                                text: "Login now",
+                                text: "Войти сейчас",
                                 style: const TextStyle(
                                     color: Colors.black,
                                     decoration: TextDecoration.underline),

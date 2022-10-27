@@ -18,7 +18,13 @@ class _AddContactState extends State<AddContact> {
   Widget build(BuildContext context) {
     final _ctrName = TextEditingController();
     final _ctrSurname = TextEditingController();
+    final _ctrLastname = TextEditingController();
+    final _ctrPseudonym = TextEditingController();
     final _ctrTelephone = TextEditingController();
+    final _ctrEmail = TextEditingController();
+    final _ctrSocialNetwork = TextEditingController();
+    final _ctrImportantDate = TextEditingController();
+    final _ctrComments = TextEditingController();
 
     return Scaffold(
       appBar: AppBar(
@@ -26,7 +32,7 @@ class _AddContactState extends State<AddContact> {
           centerTitle: true,
           backgroundColor: Theme.of(context).primaryColor,
           title: Text(
-            "Add Contact",
+            "Добавить контакт",
             style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
           )),
       body: SingleChildScrollView(
@@ -41,7 +47,7 @@ class _AddContactState extends State<AddContact> {
                 controller: _ctrName,
                 style: TextStyle(fontSize: 22),
                 decoration: InputDecoration(
-                  labelText: 'name*',
+                  labelText: 'имя*',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(40),
@@ -56,7 +62,37 @@ class _AddContactState extends State<AddContact> {
                 controller: _ctrSurname,
                 style: TextStyle(fontSize: 22),
                 decoration: InputDecoration(
-                  labelText: 'surname*',
+                  labelText: 'фамилия*',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(40),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              TextField(
+                controller: _ctrLastname,
+                style: TextStyle(fontSize: 22),
+                decoration: InputDecoration(
+                  labelText: 'отчество*',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(40),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              TextField(
+                controller: _ctrPseudonym,
+                style: TextStyle(fontSize: 22),
+                decoration: InputDecoration(
+                  labelText: 'псевдоним*',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(40),
@@ -71,7 +107,67 @@ class _AddContactState extends State<AddContact> {
                 controller: _ctrTelephone,
                 style: TextStyle(fontSize: 22),
                 decoration: InputDecoration(
-                  labelText: 'telephone*',
+                  labelText: 'телефон*',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(40),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              TextField(
+                controller: _ctrEmail,
+                style: TextStyle(fontSize: 22),
+                decoration: InputDecoration(
+                  labelText: 'электронная почта*',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(40),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              TextField(
+                controller: _ctrSocialNetwork,
+                style: TextStyle(fontSize: 22),
+                decoration: InputDecoration(
+                  labelText: 'соц.сети*',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(40),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              TextField(
+                controller: _ctrImportantDate,
+                style: TextStyle(fontSize: 22),
+                decoration: InputDecoration(
+                  labelText: 'значимые даты*',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(40),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              TextField(
+                controller: _ctrComments,
+                style: TextStyle(fontSize: 22),
+                decoration: InputDecoration(
+                  labelText: 'комментарии*',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(40),
@@ -89,14 +185,25 @@ class _AddContactState extends State<AddContact> {
                   final user = User(
                       name: _ctrName.text,
                       surname: _ctrSurname.text,
-                      telephone: int.parse(_ctrTelephone.text));
+                      lastname: _ctrLastname.text,
+                      pseudonym: _ctrPseudonym.text,
+                      telephone: int.parse(_ctrTelephone.text),
+                      email: _ctrEmail.text,
+                      socialNetwork: _ctrSocialNetwork.text,
+                      importantDate: _ctrImportantDate.text,
+                      comments: _ctrComments.text);
                   Navigator.pop(context);
 
                   addUser(user);
                   _ctrName.text = "";
                   _ctrSurname.text = "";
-
+                  _ctrLastname.text = "";
+                  _ctrPseudonym.text = "";
                   _ctrTelephone.text = "";
+                  _ctrEmail.text = "";
+                  _ctrSocialNetwork.text = "";
+                  _ctrImportantDate.text = "";
+                  _ctrComments.text = "";
                 },
                 child: Container(
                   width: double.infinity,

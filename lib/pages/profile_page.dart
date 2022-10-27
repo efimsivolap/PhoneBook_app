@@ -24,7 +24,7 @@ class _ProfilePageState extends State<ProfilePage> {
         backgroundColor: Theme.of(context).primaryColor,
         elevation: 0,
         title: const Text(
-          "Profile",
+          "Профиль",
           style: TextStyle(
               color: Colors.white, fontSize: 27, fontWeight: FontWeight.bold),
         ),
@@ -61,7 +61,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
               leading: const Icon(Icons.group),
               title: const Text(
-                "Contacts",
+                "Контакты",
                 style: TextStyle(color: Colors.black),
               ),
             ),
@@ -73,7 +73,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
               leading: const Icon(Icons.person),
               title: const Text(
-                "Profile",
+                "Профиль",
                 style: TextStyle(color: Colors.black),
               ),
             ),
@@ -84,8 +84,8 @@ class _ProfilePageState extends State<ProfilePage> {
                     context: context,
                     builder: (context) {
                       return AlertDialog(
-                        title: const Text('Logout'),
-                        content: const Text("Are you sure you want to logout?"),
+                        title: const Text('Выйти'),
+                        content: const Text("Вы действительно хотите выйти?"),
                         actions: [
                           IconButton(
                             onPressed: () {
@@ -121,7 +121,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
               leading: const Icon(Icons.exit_to_app),
               title: const Text(
-                "Logout",
+                "Выйти",
                 style: TextStyle(color: Colors.black),
               ),
             )
@@ -148,7 +148,7 @@ class _ProfilePageState extends State<ProfilePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  "Full name",
+                  "Имя",
                   style: TextStyle(
                     fontSize: 17,
                   ),
@@ -168,7 +168,7 @@ class _ProfilePageState extends State<ProfilePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  "Email",
+                  "Электронная почта",
                   style: TextStyle(
                     fontSize: 17,
                   ),

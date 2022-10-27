@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Theme.of(context).primaryColor,
         centerTitle: true,
         title: Text(
-          "Contacts",
+          "Контакты",
           style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
         ),
       ),
@@ -99,7 +99,7 @@ class _HomePageState extends State<HomePage> {
                   const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
               leading: const Icon(Icons.group),
               title: const Text(
-                "Contacts",
+                "Контакты",
                 style: TextStyle(color: Colors.black),
               ),
             ),
@@ -117,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                   const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
               leading: const Icon(Icons.person),
               title: const Text(
-                "Profile",
+                "Профиль",
                 style: TextStyle(color: Colors.black),
               ),
             ),
@@ -128,8 +128,8 @@ class _HomePageState extends State<HomePage> {
                     context: context,
                     builder: (context) {
                       return AlertDialog(
-                        title: const Text('Logout'),
-                        content: const Text("Are you sure you want to logout?"),
+                        title: const Text('Выйти'),
+                        content: const Text("Вы действительно хотите выйти?"),
                         actions: [
                           IconButton(
                             onPressed: () {
@@ -165,7 +165,7 @@ class _HomePageState extends State<HomePage> {
                   const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
               leading: const Icon(Icons.exit_to_app),
               title: const Text(
-                "Logout",
+                "Выйти",
                 style: TextStyle(color: Colors.black),
               ),
             )
@@ -211,7 +211,7 @@ class _HomePageState extends State<HomePage> {
                           color: currentTab == 0 ? Colors.blue : Colors.grey,
                         ),
                         Text(
-                          'contacts',
+                          'контакты',
                           style: TextStyle(
                               color:
                                   currentTab == 0 ? Colors.blue : Colors.grey),
@@ -240,7 +240,7 @@ class _HomePageState extends State<HomePage> {
                           color: currentTab == 3 ? Colors.blue : Colors.grey,
                         ),
                         Text(
-                          'settings',
+                          'настройки',
                           style: TextStyle(
                               color:
                                   currentTab == 3 ? Colors.blue : Colors.grey),

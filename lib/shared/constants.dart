@@ -12,21 +12,21 @@ class Styles {
   static ThemeData themeData(bool isDarkTheme, BuildContext context) {
     return ThemeData(
       scaffoldBackgroundColor: isDarkTheme
-          ? Color.fromARGB(255, 98, 98, 98)
-          : const Color(0xFFFFFFFF),
+          ? Color.fromARGB(255, 64, 64, 64)
+          : Color.fromARGB(255, 230, 228, 228),
       primaryColor: Color.fromARGB(255, 74, 168, 245),
       colorScheme: ThemeData().colorScheme.copyWith(
             secondary: isDarkTheme
-                ? Color.fromARGB(255, 60, 60, 60)
+                ? Color.fromARGB(255, 199, 195, 195)
                 : const Color(0xFFF2FDFD),
             brightness: isDarkTheme ? Brightness.dark : Brightness.light,
           ),
       cardColor: isDarkTheme
-          ? Color.fromARGB(255, 41, 41, 41)
-          : const Color(0xFFF2FDFD),
+          ? Color.fromARGB(255, 103, 102, 102)
+          : Color.fromARGB(255, 208, 206, 206),
       canvasColor: isDarkTheme
-          ? Color.fromARGB(255, 120, 116, 116)
-          : Color.fromARGB(255, 93, 91, 91),
+          ? Color.fromARGB(255, 181, 179, 179)
+          : Color.fromARGB(255, 172, 171, 171),
     );
   }
 }

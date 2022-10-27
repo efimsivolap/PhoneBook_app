@@ -18,7 +18,7 @@ class _SettingsState extends State<Settings> {
       body: Container(
         padding: EdgeInsets.all(20),
         child: SwitchListTile(
-          title: Text("Theme"),
+          title: Text("Тема"),
           secondary: Icon(themeState.getDarkTheme
               ? Icons.dark_mode_outlined
               : Icons.light_mode_outlined),
